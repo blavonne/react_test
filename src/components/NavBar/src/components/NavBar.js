@@ -1,26 +1,33 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import NavItemList from "./NavItemList";
-import ContentArea from "../../../ContentArea/src/components/ContentArea"
 
 function NavBar() {
-	const apps = [
-		{id: 1, name: "Application1"},
-		{id: 2, name: "Application2"},
-		{id: 3, name: "Application3"},
-	]
+	let [apps, setActive] = React.useState([
+			{id: 1, name: "Application1", active: false},
+			{id: 2, name: "Application2", active: false},
+			{id: 3, name: "Application3", active: false}
+		]
+	)
 
-	function showContent(id) {
-		alert("showContent id = " + id)
-		return (
-			ContentArea(id)
+	function toggleContentArea(id) {
+		setActive(
+			apps.map(elem => {
+				if (elem.id === id) {
+					elem.active = !elem.active
+				}
+				return elem
+			})
 		)
 	}
 
 	return (
 		<div className="NavBar">
-			This is nav bar
-			<NavItemList apps={apps} showContent={showContent}/>
+			This is NavBar
+			<NavItemList
+				apps={apps}
+				onToggle={toggleContentArea}
+			/>
 		</div>
 	);
 }

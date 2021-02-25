@@ -1,25 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function ContentArea(id)
+/*
+отобразить тот апп, у которого нав айтем актив
+ */
+
+function ContentArea(props)
 {
-	const content = [
-		{id: 1, text: "This is content #1"},
-		{id: 2, text: "This is content #2"},
-		{id: 3, text: "This is content #3"},
-	]
-	alert("ContentArea id = " + id)
-	if (id === 1) {
-		alert("id is the same")
-		return (
-			<div className="ContentArea">
-				Content id = {content[0].id}, content text: {content[0].text}
-			</div>
-		)
-	}
+	// let [content, setActive] = useState([
+	// 	{id: 0, text: "Default content", display: false},
+	// 	{id: 1, text: "This is content #1", display: false},
+	// 	{id: 2, text: "This is content #2", display: false},
+	// 	{id: 3, text: "This is content #3", display: false},
+	// ])
+
+	// function showMiracle(id)
+	// {
+	// 	setActive (
+	// 		content.map(elem => {
+	// 			if (elem.id === id)
+	// 				elem.active = true
+	// 			else
+	// 				elem.active = false;
+	// 			return content;
+	// 		})
+	// 	);
+	// }
+
 	return (
 		<div className="ContentArea">
-			This is empty ContentArea
+			Default Content
 		</div>
 	)
 }

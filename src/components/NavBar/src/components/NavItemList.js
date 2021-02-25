@@ -12,7 +12,7 @@ function NavItemList(props)
 					app={app}
 					key={app.id}
 					index={index}
-					showContent={props.showContent}
+					onToggle={props.onToggle}
 				/>
 			})}
 		</div>
@@ -21,7 +21,7 @@ function NavItemList(props)
 
 NavItemList.propTypes = {
 	apps: PropTypes.arrayOf(PropTypes.object).isRequired,
-	showContent: PropTypes.func.isRequired
+	onToggle: PropTypes.func.isRequired
 }
 
 export default NavItemList;
